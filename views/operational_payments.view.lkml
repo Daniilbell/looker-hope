@@ -69,6 +69,23 @@ view: operational_payments {
     sql: ${TABLE}.created_at ;;
   }
 
+  dimension_group: created_utc3 {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      hour,
+      minute5,
+      minute30,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: COALESCE(TIMESTAMPADD(hour, 3, ${TABLE}.created_at)) ;;
+  }
+
   dimension: currency {
     type: string
     sql: ${TABLE}.currency ;;
@@ -213,6 +230,23 @@ view: operational_payments {
       year
     ]
     sql: ${TABLE}.updated_at ;;
+  }
+
+  dimension_group: updated_utc3 {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      hour,
+      minute5,
+      minute30,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: COALESCE(TIMESTAMPADD(hour, 3, ${TABLE}.updated_at)) ;;
   }
 
   measure: count {
