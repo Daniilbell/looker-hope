@@ -168,6 +168,28 @@ view: operational_operations {
     sql: ${TABLE}.payment_systems_operation_id ;;
   }
 
+  dimension: payment_system_result_code {
+    type: string
+    sql: CONVERT(
+          CAST(
+            JSON_UNQUOTE(
+              JSON_EXTRACT(CONVERT(operational_operations.data USING utf8mb4), '$.Attrs.ps_result_code')
+            ) AS BINARY
+          ) USING utf8mb4
+        );;
+  }
+
+  dimension: payment_system_result_message {
+    type: string
+    sql: CONVERT(
+          CAST(
+            JSON_UNQUOTE(
+              JSON_EXTRACT(CONVERT(operational_operations.data USING utf8mb4), '$.Attrs.ps_result_message')
+            ) AS BINARY
+          ) USING utf8mb4
+        );;
+  }
+
   dimension: payment_type {
     type: string
     sql: ${TABLE}.payment_type ;;
