@@ -57,6 +57,9 @@ view: operational_payments {
     timeframes: [
       raw,
       time,
+      hour,
+      minute5,
+      minute30,
       date,
       week,
       month,
@@ -200,6 +203,9 @@ view: operational_payments {
     timeframes: [
       raw,
       time,
+      hour,
+      minute5,
+      minute30,
       date,
       week,
       month,
