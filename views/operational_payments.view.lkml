@@ -153,6 +153,23 @@ view: operational_payments {
     sql: ${TABLE}.payment_systems_account_id ;;
   }
 
+  dimension: payment_systems_account_name {
+    type: string
+    sql: CASE
+            WHEN ${payment_systems_account_id} = 3 THEN 'Tradex test'
+            WHEN ${payment_systems_account_id} = 5 THEN 'Tradex Prod'
+            WHEN ${payment_systems_account_id} = 7 THEN 'Bnpay Prod'
+            WHEN ${payment_systems_account_id} = 9 THEN 'Ironpay Prod'
+            WHEN ${payment_systems_account_id} = 11 THEN 'Payscrow Prod'
+            WHEN ${payment_systems_account_id} = 13 THEN 'Tradex test card-p2p'
+            WHEN ${payment_systems_account_id} = 15 THEN 'Forta Prod'
+            WHEN ${payment_systems_account_id} = 17 THEN 'Tradex test sbp-p2p-int'
+            WHEN ${payment_systems_account_id} = 19 THEN 'Tradex Card P2P PROD'
+            WHEN ${payment_systems_account_id} = 21 THEN 'Tradex QR PROD'
+        ELSE null
+        END ;;
+  }
+
   dimension: payment_systems_api_code {
     type: string
     sql: ${TABLE}.payment_systems_api_code ;;
