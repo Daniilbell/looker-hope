@@ -155,7 +155,7 @@ view: operational_payments {
             WHEN ${merchant_account_id} = 403033 THEN 'Betcity_p2p_method_sbp-p2p'
             WHEN ${merchant_account_id} = 403031 THEN '1xbet_p2p_method_sbp-p2p'
             WHEN ${merchant_account_id} = 403029 THEN '1xslot_p2p_method_sbp-p2p'
-            WHEN ${merchant_account_id} = 403031 THEN 'pinco_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403027 THEN 'pinco_p2p_method_sbp-p2p'
         ELSE null
         END ;;
   }
