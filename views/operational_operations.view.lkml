@@ -116,6 +116,35 @@ view: operational_operations {
     sql: ${TABLE}.merchant_account_id ;;
   }
 
+  dimension: merchant_account_name_cust {
+    type: string
+    sql: CASE
+            WHEN ${merchant_account_id} = 403073 THEN 'olimp.com_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403075 THEN 'olimp.com_untrusted_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403077 THEN 'olimp.com_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403071 THEN 'olimp.com_untrusted_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403061 THEN 'Jvspin_untrusted_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403059 THEN 'Jvspin_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403057 THEN 'DB-Bet_untrusted_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403055 THEN 'DB-Bet_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403053 THEN 'DB-Bet_untrusted_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403051 THEN 'fortuneclock_FD_CL_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403049 THEN 'Vavada_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403047 THEN 'DB-Bet_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403045 THEN 'Vavada_p2p_method_sbp-p2p-transfer'
+            WHEN ${merchant_account_id} = 403043 THEN '1xslot_untrusted_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403041 THEN 'fortuneclock_FD_CL_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403039 THEN 'fortuneclock_FD_CL_untrusted_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403037 THEN 'Betcity_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403035 THEN 'fortuneclock_FD_CL_untrusted_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403033 THEN 'Betcity_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403031 THEN '1xbet_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403029 THEN '1xslot_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403031 THEN 'pinco_p2p_method_sbp-p2p'
+        ELSE null
+        END ;;
+  }
+
   dimension: merchant_api_code {
     type: string
     sql: ${TABLE}.merchant_api_code ;;
