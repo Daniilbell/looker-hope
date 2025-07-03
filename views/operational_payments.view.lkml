@@ -134,6 +134,18 @@ view: operational_payments {
   dimension: merchant_account_name_cust {
     type: string
     sql: CASE
+            WHEN ${merchant_account_id} = 403247 THEN '1XBET LATAM_untrusted_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403245 THEN '1XBET LATAM_untrusted_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403243 THEN '1XBET LATAM_untrusted_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403241 THEN '1XBET LATAM_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403239 THEN 'Melbet_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403237 THEN 'Melbet_untrusted_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403235 THEN 'Melbet_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403233 THEN 'Melbet_untrusted_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403231 THEN 'everumcasino.com_p2p_method_sbp-p2p-int'
+            WHEN ${merchant_account_id} = 403229 THEN 'everumcasino.com_untrusted_p2p_method_sbp-p2p-int'
+            WHEN ${merchant_account_id} = 403227 THEN 'Betcity_p2p_method_sbp-p2p-int'
+            WHEN ${merchant_account_id} = 403225 THEN 'Jvspin_p2p_method_card-p2p'
             WHEN ${merchant_account_id} = 403159 THEN '1xbet_untrusted_p2p_method_sbp-p2p'
             WHEN ${merchant_account_id} = 403161 THEN '1xbet_untrusted_p2p_method_card-p2p'
             WHEN ${merchant_account_id} = 403163 THEN '1xbet_p2p_method_card-p2p'
@@ -166,26 +178,6 @@ view: operational_payments {
             WHEN ${merchant_account_id} = 403217 THEN 'bons_p2p_method_card-p2p'
             WHEN ${merchant_account_id} = 403219 THEN 'bons_untrusted_p2p_method_sbp-p2p-int'
             WHEN ${merchant_account_id} = 403221 THEN 'bons_p2p_method_sbp-p2p-int'
-            WHEN ${merchant_account_id} = 403197 THEN '20_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403195 THEN '19_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403193 THEN '18_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403191 THEN '17_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403189 THEN '16_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403187 THEN '15_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403185 THEN '14_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403183 THEN '13_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403181 THEN '12_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403179 THEN '11_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403177 THEN '10_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403175 THEN '9_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403173 THEN '8_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403171 THEN '7_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403169 THEN '6_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403167 THEN '5_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403165 THEN '4_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403163 THEN '3_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403161 THEN '2_Vostokcasino_p2p_method_card-p2p'
-            WHEN ${merchant_account_id} = 403159 THEN '1_Vostokcasino_p2p_method_card-p2p'
             WHEN ${merchant_account_id} = 403157 THEN 'Vostokcasino_p2p_method_card-p2p'
             WHEN ${merchant_account_id} = 403155 THEN 'Vostokcasino_untrusted_p2p_method_card-p2p'
             WHEN ${merchant_account_id} = 403153 THEN 'Vostokcasino_p2p_method_sbp-p2p'
@@ -261,6 +253,39 @@ view: operational_payments {
     type: number
     # hidden: yes
     sql: ${TABLE}.merchant_id ;;
+  }
+
+  dimension: merchant_name_cust {
+    type: string
+    sql: CASE
+            WHEN ${merchant_account_id} = 403159 OR ${merchant_account_id} = 403161 OR ${merchant_account_id} = 403163 OR ${merchant_account_id} = 403031 THEN '1xbet'
+            WHEN ${merchant_account_id} = 403165 OR ${merchant_account_id} = 403167 OR ${merchant_account_id} = 403169 OR ${merchant_account_id} = 403171 OR ${merchant_account_id} = 403231 OR ${merchant_account_id} = 403229 THEN 'everumcasino.com'
+            WHEN ${merchant_account_id} = 403173 OR ${merchant_account_id} = 403175 OR ${merchant_account_id} = 403177 OR ${merchant_account_id} = 403181 OR ${merchant_account_id} = 403183 THEN 'hiwager'
+            WHEN ${merchant_account_id} = 403185 OR ${merchant_account_id} = 403187 OR ${merchant_account_id} = 403189 OR ${merchant_account_id} = 403191 THEN 'Vibecasino new'
+            WHEN ${merchant_account_id} = 403193 OR ${merchant_account_id} = 403195 OR ${merchant_account_id} = 403197 THEN 'goodwico'
+            WHEN ${merchant_account_id} = 403199 OR ${merchant_account_id} = 403201 OR ${merchant_account_id} = 403203 OR ${merchant_account_id} = 403205 OR ${merchant_account_id} = 403207 OR ${merchant_account_id} = 403029 OR ${merchant_account_id} = 403043 THEN '1xslot'
+            WHEN ${merchant_account_id} = 403211 OR ${merchant_account_id} = 403213 OR ${merchant_account_id} = 403215 OR ${merchant_account_id} = 403217 OR ${merchant_account_id} = 403219 OR ${merchant_account_id} = 403221 THEN 'bons'
+            WHEN ${merchant_account_id} = 403157 OR ${merchant_account_id} = 403155 OR ${merchant_account_id} = 403153 OR ${merchant_account_id} = 403151 THEN 'Vostokcasino'
+            WHEN ${merchant_account_id} = 403149 OR ${merchant_account_id} = 403147 OR ${merchant_account_id} = 403145 OR ${merchant_account_id} = 403143 THEN 'metla.bet'
+            WHEN ${merchant_account_id} = 403141 OR ${merchant_account_id} = 403139 OR ${merchant_account_id} = 403137 OR ${merchant_account_id} = 403135 THEN 'spinamba TD CL'
+            WHEN ${merchant_account_id} = 403133 OR ${merchant_account_id} = 403131 OR ${merchant_account_id} = 403129 OR ${merchant_account_id} = 403127 THEN 'Fontan Direct'
+            WHEN ${merchant_account_id} = 403125 OR ${merchant_account_id} = 403123 OR ${merchant_account_id} = 403119 OR ${merchant_account_id} = 403121 THEN 'MNTX drift.casino'
+            WHEN ${merchant_account_id} = 403117 OR ${merchant_account_id} = 403115 OR ${merchant_account_id} = 403113 OR ${merchant_account_id} = 403111 THEN 'Olimp.com'
+            WHEN ${merchant_account_id} = 403109 OR ${merchant_account_id} = 403107 OR ${merchant_account_id} = 403105 OR ${merchant_account_id} = 403103 THEN 'MNTX frankclubcasino.com'
+            WHEN ${merchant_account_id} = 403101 OR ${merchant_account_id} = 403099 OR ${merchant_account_id} = 403097 OR ${merchant_account_id} = 403095 THEN 'MNTX cslotv.com'
+            WHEN ${merchant_account_id} = 403093 OR ${merchant_account_id} = 403091 OR ${merchant_account_id} = 403089 OR ${merchant_account_id} = 403087 THEN 'aplay.casino'
+            WHEN ${merchant_account_id} = 403085 OR ${merchant_account_id} = 403083 OR ${merchant_account_id} = 403079 OR ${merchant_account_id} = 403081 THEN 'olymp.casino'
+            WHEN ${merchant_account_id} = 403073 OR ${merchant_account_id} = 403075 OR ${merchant_account_id} = 403077 OR ${merchant_account_id} = 403071 OR ${merchant_account_id} = 403117 OR ${merchant_account_id} = 403115 OR ${merchant_account_id} = 403113 OR ${merchant_account_id} = 403111 THEN 'olimp.com'
+            WHEN ${merchant_account_id} = 403061 OR ${merchant_account_id} = 403059 OR ${merchant_account_id} = 403225 THEN 'Jvspin'
+            WHEN ${merchant_account_id} = 403057 OR ${merchant_account_id} = 403055 OR ${merchant_account_id} = 403053 OR ${merchant_account_id} = 403047 THEN 'DB-Bet'
+            WHEN ${merchant_account_id} = 403051 OR ${merchant_account_id} = 403041 OR ${merchant_account_id} = 403039 OR ${merchant_account_id} = 403035 THEN 'fortuneclock_FD_CL'
+            WHEN ${merchant_account_id} = 403049 OR ${merchant_account_id} = 403045 THEN 'Vavada'
+            WHEN ${merchant_account_id} = 403037 OR ${merchant_account_id} = 403033 OR ${merchant_account_id} = 403227 THEN 'Betcity'
+            WHEN ${merchant_account_id} = 403027 OR ${merchant_account_id} = 403209 THEN 'pinco'
+            WHEN ${merchant_account_id} = 403239 OR ${merchant_account_id} = 403233 OR ${merchant_account_id} = 403237 OR ${merchant_account_id} = 403235 THEN 'Melbet'
+            WHEN ${merchant_account_id} = 403241 OR ${merchant_account_id} = 403243 OR ${merchant_account_id} = 403245 OR ${merchant_account_id} = 403247 THEN '1XBET LATAM'
+        ELSE null
+        END ;;
   }
 
   dimension: merchant_payment_id {
