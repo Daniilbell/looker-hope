@@ -255,7 +255,7 @@ view: operational_payments {
     sql: ${TABLE}.merchant_id ;;
   }
 
-  dimension: merchant_name_cust {
+  dimension: project_name_cust {
     type: string
     sql: CASE
             WHEN ${merchant_account_id} = 403159 OR ${merchant_account_id} = 403161 OR ${merchant_account_id} = 403163 OR ${merchant_account_id} = 403031 THEN '1xbet'
