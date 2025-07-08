@@ -119,6 +119,19 @@ view: operational_operations {
   dimension: merchant_account_name_cust {
     type: string
     sql: CASE
+            WHEN ${merchant_account_id} = 403273 THEN 'Winwin.bet_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403271 THEN 'Winwin.bet_untrusted_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403269 THEN 'Winwin.bet_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403267 THEN 'Fastpari_p2p_method_sbp-p2p-int'
+            WHEN ${merchant_account_id} = 403265 THEN 'Fastpari_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403263 THEN 'Fastpari_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403261 THEN 'Fastpari_untrusted_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403259 THEN 'Fastpari_untrusted_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403257 THEN 'Fastpari_untrusted_p2p_method_sbp-p2p-int'
+            WHEN ${merchant_account_id} = 403255 THEN 'Winwin.bet_untrusted_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403253 THEN 'olymp.casino_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403251 THEN 'olymp.casino_p2p_method_sbp-p2p-int'
+            WHEN ${merchant_account_id} = 403249 THEN 'olymp.casino_p2p_method_card-p2p'
             WHEN ${merchant_account_id} = 403247 THEN '1XBET LATAM_untrusted_p2p_method_card-p2p'
             WHEN ${merchant_account_id} = 403245 THEN '1XBET LATAM_untrusted_p2p_method_card-p2p'
             WHEN ${merchant_account_id} = 403243 THEN '1XBET LATAM_untrusted_p2p_method_sbp-p2p'
@@ -259,7 +272,7 @@ view: operational_operations {
             WHEN ${merchant_account_id} = 403109 OR ${merchant_account_id} = 403107 OR ${merchant_account_id} = 403105 OR ${merchant_account_id} = 403103 THEN 'MNTX frankclubcasino.com'
             WHEN ${merchant_account_id} = 403101 OR ${merchant_account_id} = 403099 OR ${merchant_account_id} = 403097 OR ${merchant_account_id} = 403095 THEN 'MNTX cslotv.com'
             WHEN ${merchant_account_id} = 403093 OR ${merchant_account_id} = 403091 OR ${merchant_account_id} = 403089 OR ${merchant_account_id} = 403087 THEN 'aplay.casino'
-            WHEN ${merchant_account_id} = 403085 OR ${merchant_account_id} = 403083 OR ${merchant_account_id} = 403079 OR ${merchant_account_id} = 403081 THEN 'olymp.casino'
+            WHEN ${merchant_account_id} = 403085 OR ${merchant_account_id} = 403083 OR ${merchant_account_id} = 403079 OR ${merchant_account_id} = 403081 OR ${merchant_account_id} = 403249 OR ${merchant_account_id} = 403251 OR ${merchant_account_id} = 403253 THEN 'olymp.casino'
             WHEN ${merchant_account_id} = 403073 OR ${merchant_account_id} = 403075 OR ${merchant_account_id} = 403077 OR ${merchant_account_id} = 403071 OR ${merchant_account_id} = 403117 OR ${merchant_account_id} = 403115 OR ${merchant_account_id} = 403113 OR ${merchant_account_id} = 403111 THEN 'olimp.com'
             WHEN ${merchant_account_id} = 403061 OR ${merchant_account_id} = 403059 OR ${merchant_account_id} = 403225 THEN 'Jvspin'
             WHEN ${merchant_account_id} = 403057 OR ${merchant_account_id} = 403055 OR ${merchant_account_id} = 403053 OR ${merchant_account_id} = 403047 THEN 'DB-Bet'
@@ -269,6 +282,8 @@ view: operational_operations {
             WHEN ${merchant_account_id} = 403027 OR ${merchant_account_id} = 403209 THEN 'pinco'
             WHEN ${merchant_account_id} = 403239 OR ${merchant_account_id} = 403233 OR ${merchant_account_id} = 403237 OR ${merchant_account_id} = 403235 THEN 'Melbet'
             WHEN ${merchant_account_id} = 403241 OR ${merchant_account_id} = 403243 OR ${merchant_account_id} = 403245 OR ${merchant_account_id} = 403247 THEN '1XBET LATAM'
+            WHEN ${merchant_account_id} = 403257 OR ${merchant_account_id} = 403259 OR ${merchant_account_id} = 403261 OR ${merchant_account_id} = 403263 OR ${merchant_account_id} = 403265 OR ${merchant_account_id} = 403267 THEN 'Fastpari'
+            WHEN ${merchant_account_id} = 403255 OR ${merchant_account_id} = 403269 OR ${merchant_account_id} = 403271 OR ${merchant_account_id} = 403273 THEN 'Winwin'
         ELSE null
         END ;;
   }
