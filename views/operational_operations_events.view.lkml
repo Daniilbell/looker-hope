@@ -92,6 +92,17 @@ view: operational_operations_events {
     sql: ${TABLE}.updated_at ;;
   }
 
+  dimension: p2p_receiver_account {
+    type: string
+    sql: CONVERT(
+          CAST(
+            JSON_UNQUOTE(
+              JSON_EXTRACT(CONVERT(operational_operations_event.data USING utf8mb4), '$.response_body.account')
+            ) AS BINARY
+          ) USING utf8mb4
+        );;
+  }
+
   measure: count {
     type: count
     drill_fields: [id]
