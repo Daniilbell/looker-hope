@@ -75,6 +75,17 @@ view: merchants_accounts {
     sql: ${TABLE}.settings ;;
   }
 
+  dimension: is_mixed_payment_method{
+    type: string
+    sql:CONVERT(
+          CAST(
+            JSON_UNQUOTE(
+              JSON_EXTRACT(CONVERT(settings USING utf8mb4), '$.is_mixed_payment_method')
+            ) AS BINARY
+          ) USING utf8mb4
+        );;
+  }
+
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
