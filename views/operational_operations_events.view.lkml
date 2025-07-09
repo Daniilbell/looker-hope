@@ -97,7 +97,7 @@ view: operational_operations_events {
     sql: CONVERT(
           CAST(
             JSON_UNQUOTE(
-              JSON_EXTRACT(CONVERT(operational_operations_events.data USING utf8mb4), '$.response_body.account')
+              JSON_EXTRACT(CONVERT(operational_operations_events.data USING utf8mb4), '$.account')
             ) AS BINARY
           ) USING utf8mb4
         );;
