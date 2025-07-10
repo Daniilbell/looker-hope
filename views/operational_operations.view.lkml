@@ -334,6 +334,12 @@ view: operational_operations {
             WHEN ${payment_systems_account_id} = 21 THEN 'Tradex QR PROD'
             WHEN ${payment_systems_account_id} = 23 THEN 'Tradex CARD INT'
             WHEN ${payment_systems_account_id} = 25 THEN 'Cubepayments QR'
+            WHEN ${payment_systems_account_id} = 27 THEN 'Cubepayments QR Test Remove'
+            WHEN ${payment_systems_account_id} = 29 THEN 'Cubepayments SBP INT'
+            WHEN ${payment_systems_account_id} = 31 THEN 'Tradex SBP INT (TEST)'
+            WHEN ${payment_systems_account_id} = 33 THEN 'Tradex Untrusted SBP'
+            WHEN ${payment_systems_account_id} = 35 THEN 'Tradex Untrusted SBP INT'
+            WHEN ${payment_systems_account_id} = 37 THEN 'Cubepayments Untrusted SBP INT  '
         ELSE null
         END ;;
   }
