@@ -131,9 +131,23 @@ view: operational_payments {
     sql: ${TABLE}.merchant_account_id ;;
   }
 
-  dimension: merchant_account_name_cust {
-    type: string
-    sql: CASE
+    dimension: merchant_account_name_cust {
+      type: string
+      sql: CASE
+            WHEN ${merchant_account_id} = 403301 THEN 'VouWallet.io_p2p_method_sbp-qr'
+            WHEN ${merchant_account_id} = 403299 THEN 'VouWallet.io_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403297 THEN 'VouWallet.io_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403295 THEN 'VouWallet.io_p2p_method_sbp-p2p-int'
+            WHEN ${merchant_account_id} = 403293 THEN 'Po.trade_p2p_method_sbp-qr'
+            WHEN ${merchant_account_id} = 403291 THEN 'Po.trade_untrusted_p2p_method_sbp-qr'
+            WHEN ${merchant_account_id} = 403289 THEN 'Cold.bet_untrusted_p2p_method_sbp-p2p-int'
+            WHEN ${merchant_account_id} = 403287 THEN 'Cold.bet_p2p_method_sbp-p2p-int'
+            WHEN ${merchant_account_id} = 403285 THEN 'Cold.bet_untrusted_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403283 THEN 'Cold.bet_p2p_method_card-p2p'
+            WHEN ${merchant_account_id} = 403281 THEN 'Cold.bet_untrusted_p2p_method_sbp-qr'
+            WHEN ${merchant_account_id} = 403279 THEN 'Cold.bet_p2p_method_sbp-qr'
+            WHEN ${merchant_account_id} = 403277 THEN 'Cold.bet_untrusted_p2p_method_sbp-p2p'
+            WHEN ${merchant_account_id} = 403275 THEN 'Cold.bet_p2p_method_sbp-p2p'
             WHEN ${merchant_account_id} = 403273 THEN 'Winwin.bet_p2p_method_card-p2p'
             WHEN ${merchant_account_id} = 403271 THEN 'Winwin.bet_untrusted_p2p_method_card-p2p'
             WHEN ${merchant_account_id} = 403269 THEN 'Winwin.bet_p2p_method_sbp-p2p'
@@ -255,7 +269,7 @@ view: operational_payments {
             WHEN ${merchant_account_id} = 403027 THEN 'pinco_p2p_method_sbp-p2p'
         ELSE null
         END ;;
-  }
+    }
 
   dimension: merchant_api_code {
     type: string
@@ -299,6 +313,9 @@ view: operational_payments {
             WHEN ${merchant_account_id} = 403241 OR ${merchant_account_id} = 403243 OR ${merchant_account_id} = 403245 OR ${merchant_account_id} = 403247 THEN '1XBET LATAM'
             WHEN ${merchant_account_id} = 403257 OR ${merchant_account_id} = 403259 OR ${merchant_account_id} = 403261 OR ${merchant_account_id} = 403263 OR ${merchant_account_id} = 403265 OR ${merchant_account_id} = 403267 THEN 'Fastpari'
             WHEN ${merchant_account_id} = 403255 OR ${merchant_account_id} = 403269 OR ${merchant_account_id} = 403271 OR ${merchant_account_id} = 403273 THEN 'Winwin'
+            WHEN ${merchant_account_id} = 403301 OR ${merchant_account_id} = 403299 OR ${merchant_account_id} = 403297 OR ${merchant_account_id} = 403295 THEN 'VouWallet.io'
+            WHEN ${merchant_account_id} = 403293 OR ${merchant_account_id} = 403291 THEN 'Po.trade'
+            WHEN ${merchant_account_id} = 403289 OR ${merchant_account_id} = 403287 OR ${merchant_account_id} = 403285 OR ${merchant_account_id} = 403283 OR ${merchant_account_id} = 403281 OR ${merchant_account_id} = 403279 OR ${merchant_account_id} = 403277 OR ${merchant_account_id} = 403275 THEN 'Cold.bet'
         ELSE null
         END ;;
   }
